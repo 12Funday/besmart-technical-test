@@ -109,19 +109,19 @@ pipeline {
         stage('Smoke Test') {
             steps {
                 sh """
-                echo 'Waiting for app to start...'
-                sleep 10
+                    echo 'Waiting for app to start...'
+                    sleep 10
 
-                echo 'Checking root endpoint...'
+                    echo 'Checking root endpoint...'
 
-                RESPONSE=$(curl -s -o /dev/null -w "%{http_code}" http://${DEPLOY_SERVER}:8080/)
+                    RESPONSE=\$(curl -s -o /dev/null -w "%{http_code}" http://${DEPLOY_SERVER}:8080/)
 
-                if [ "$RESPONSE" -ne 200 ]; then
-                    echo "Smoke test FAILED. HTTP code: $RESPONSE"
-                    exit 1
-                fi
+                    if [ "\$RESPONSE" -ne 200 ]; then
+                        echo "Smoke test FAILED. HTTP code: \$RESPONSE"
+                        exit 1
+                    fi
 
-                echo "Smoke test PASSED"
+                    echo "Smoke test PASSED"
                 """
             }
         }
