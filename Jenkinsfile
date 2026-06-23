@@ -110,7 +110,7 @@ pipeline {
             steps {
                 sh """
                     echo 'Waiting for app to start...'
-                    sleep 10
+                    sleep 30
 
                     echo 'Checking root endpoint...'
 
