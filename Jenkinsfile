@@ -85,7 +85,7 @@ pipeline {
 
                     sh """
                         echo 'Test ssh'
-                        ssh -o StrictHostKeyChecking=no pandey@${DEPLOY_SERVER} << EOF
+                        ssh -o StrictHostKeyChecking=no pandey@${DEPLOY_SERVER} '
                             set -e
 
                             docker pull ${params.IMAGE_NAME}:latest
@@ -100,7 +100,7 @@ pipeline {
                             ${params.IMAGE_NAME}:latest
 
                             docker ps | grep demo-api
-                        EOF
+                        '
                     """
                 }
             }
