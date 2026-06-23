@@ -72,7 +72,7 @@ pipeline {
             steps {
                 // push image, dalam case ini ke dockerhub
                 sh """
-                    docker push ${params.IMAGE_NAME}:${params:IMAGE_TAG"}
+                    docker push ${params.IMAGE_NAME}:${params:IMAGE_TAG}
                     docker push ${params.IMAGE_NAME}:latest
                 """
             }
