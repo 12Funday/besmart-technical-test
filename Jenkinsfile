@@ -76,6 +76,7 @@ pipeline {
                     docker push ${params.IMAGE_NAME}:latest
                 """
             }
+        }
 
         stage('Deploy') {
             steps {
